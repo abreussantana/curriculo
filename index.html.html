@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haroldo Abreu Souza Santana | Editor de Vídeo Profissional</title>
+  <meta name="description" content="Haroldo Abreu Souza Santana, editor de criativos e VSL, Adobe Premiere, CapCut, IA para áudio e lipsync, storytelling, color grading e edição de áudio" />
+  <style>
+    :root{
+      --bg:#070b12;
+      --panel:#0c1220;
+      --card:#0e1728;
+      --line:rgba(255,255,255,.10);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
+      --accent1:#7aa2ff;
+      --accent2:#66e3c4;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 16px;
+      --max: 1040px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1100px 700px at 18% -12%, rgba(122,162,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(102,227,196,.16), transparent 55%),
+        radial-gradient(900px 700px at 22% 120%, rgba(122,162,255,.10), transparent 55%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 34px 18px 70px; }
+
+    /* Top */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 10px 0 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 260px;
+    }
+
+    .mark{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: 0 14px 30px rgba(122,162,255,.18);
+      position: relative;
+      overflow:hidden;
+    }
+    .mark::after{
+      content:"";
+      position:absolute;
+      inset:-50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(20deg);
+      opacity: .6;
+    }
+
+    .brand strong{
+      display:block;
+      font-weight: 820;
+      letter-spacing: -.2px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .brand span{
+      display:block;
+      color: var(--muted2);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      font-size: 12.5px;
+      color: var(--muted);
+      padding: 9px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,.02);
+      text-decoration:none;
+    }
+
+    /* Hero */
+    .hero{
+      background: rgba(14,23,40,.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      opacity: .85;
+    }
+
+    .hero-inner{
+      padding: 26px 22px 22px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      font-size: 12px;
+      width: fit-content;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--accent2);
+      box-shadow: 0 0 0 6px rgba(102,227,196,.10);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: -.6px;
+      font-weight: 860;
+    }
+
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      max-width: 70ch;
+    }
+
+    .pillrow{
+      margin-top: 16px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.02);
+      color: rgba(234,240,255,.9);
+      white-space: nowrap;
+    }
+
+    .contactbox{
+      padding: 14px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+    }
+    .contactbox h3{
+      margin: 0 0 10px;
+      font-size: 11px;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      font-weight: 900;
+    }
+    .kv{
+      display:grid;
+      gap: 10px;
+    }
+    .row{
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(255,255,255,.10);
+    }
+    .row:last-child{ padding-bottom:0; border-bottom:none; }
+    .k{ color: var(--muted2); font-size: 11px; }
+    .v{ font-family: var(--mono); font-size: 12.5px; color: rgba(234,240,255,.92); word-break: break-word; margin-top: 4px; }
+
+    /* Sections */
+    .section{
+      margin-top: 16px;
+      background: rgba(12,18,32,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 55px rgba(0,0,0,.28);
+      overflow:hidden;
+    }
+    .section-inner{ padding: 22px; }
+
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 860;
+      letter-spacing: -.2px;
+    }
+    .section p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 90ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: -.1px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .card ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(234,240,255,.92);
+      font-size: 13px;
+    }
+    .card li{ margin: 7px 0; }
+    .card li span{ color: var(--muted2); }
+
+    .widegrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    footer{
+      margin-top: 16px;
+      padding: 18px 6px 0;
+      color: var(--muted2);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .widegrid{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+    }
+
+    /* Print */
+    @media print{
+      body{ background:#fff; color:#111; }
+      .hero, .section{ box-shadow:none; background:#fff; border: 1px solid #ddd; }
+      .card, .contactbox{ background:#fff; border: 1px solid #e6e6e6; }
+      .subtitle, .section p, .k, footer{ color:#444 !important; }
+      .v{ color:#111 !important; }
+      nav{ display:none !important; }
+      a{ text-decoration:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <strong>Haroldo Abreu Souza Santana</strong>
+          <span>Editor de Criativos e VSL</span>
+        </div>
+      </div>
+
+          </div>
+
+    <section class="hero" aria-label="Apresentação">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Editor de vídeo focado em retenção e clareza de mensagem</div>
+          <h1>Editor de Vídeo Profissional</h1>
+          <p class="subtitle">
+            Especializado em CRIATIVOS e VSL, com experiência significativa em ADOBE PREMIERE e CAPCUT,
+            aplicando IA para gerar ÁUDIO e LIPSYNC, com atenção a STORYTELLING, COLOR GRADING e acabamento consistente
+          </p>
+
+          <div class="pillrow" aria-label="Destaques">
+            <span class="pill">Storytelling</span>
+            <span class="pill">Color Grading</span>
+            <span class="pill">Edição de Áudio</span>
+            <span class="pill">Criativos</span>
+            <span class="pill">VSL</span>
+            <span class="pill">IA, Áudio e Lipsync</span>
+          </div>
+        </div>
+
+        <aside class="contactbox" id="contato" aria-label="Contato">
+          <h3>Contato</h3>
+          <div class="kv">
+            <div class="row">
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:abreu.ssantana@gmail.com">abreu.ssantana@gmail.com</a></div>
+            </div>
+            <div class="row">
+              <div class="k">Telefone</div>
+              <div class="v"><a href="tel:+5571997298065">+55 71 99729 8065</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre" aria-label="Sobre Mim">
+      <div class="section-inner">
+        <h2>Sobre Mim</h2>
+        <p>
+          Sou Haroldo Abreu Souza Santana, editor de criativos e VSL, com foco em transformar mensagens em narrativas visuais claras e persuasivas,
+          meu trabalho prioriza ritmo, retenção e consistência técnica, do corte ao acabamento final, incluindo correção e estilização de cor,
+          tratamento de áudio e uso de IA para acelerar variações de narração e sincronização de fala
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="habilidades" aria-label="Habilidades Técnicas">
+      <div class="section-inner">
+        <h2>Habilidades Técnicas</h2>
+        <p>
+          Domínio de pós produção com foco em performance e padronização visual, mantendo qualidade entre versões e formatos
+        </p>
+
+        <div class="grid" role="list">
+          <div class="card" role="listitem">
+            <h3>Adobe Premiere</h3>
+            <p>Edição não linear com organização de timeline, ritmo e fluxo de trabalho otimizado</p>
+            <ul>
+              <li>Cortes precisos <span>cadência e clareza narrativa</span></li>
+              <li>Organização de projeto <span>assets, versões e revisão</span></li>
+              <li>Exports <span>bitrate e padrões por plataforma</span></li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>CapCut</h3>
+            <p>Agilidade para criativos, social e variações com consistência de layout</p>
+            <ul>
+              <li>Adaptação de formato <span>9:16, 1:1, 16:9</span></li>
+              <li>Legendas dinâmicas <span>hierarquia tipográfica</span></li>
+              <li>Versões rápidas <span>teste de hooks</span></li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Storytelling Visual</h3>
+            <p>Estruturação narrativa para vídeos persuasivos e engajantes</p>
+            <ul>
+              <li>Ganchos e progressão <span>retenção</span></li>
+              <li>Reforço visual <span>leitura rápida</span></li>
+              <li>Ritmo <span>densidade de informação</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="widegrid" role="list" aria-label="Habilidades adicionais">
+          <div class="card" role="listitem">
+            <h3>Color Grading</h3>
+            <p>Correção e estilização de cor com consistência entre cenas e identidade visual</p>
+            <ul>
+              <li>Correção base <span>exposição, contraste e balanço</span></li>
+              <li>Look <span>estilo e coerência</span></li>
+              <li>Consistência <span>tom de pele e continuidade</span></li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Áudio e IA</h3>
+            <p>Tratamento de áudio e uso de IA para acelerar produção e variações</p>
+            <ul>
+              <li>Edição e limpeza <span>ruído, equalização e níveis</span></li>
+              <li>Geração de áudio <span>narração e versões</span></li>
+              <li>Lipsync <span>sincronização de fala quando aplicável</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio" aria-label="Portfólio">
+      <div class="section-inner">
+        <h2>Portfólio</h2>
+        <p>
+          Experiência direcionada a CRIATIVOS e VSL, com foco em estrutura, clareza, ritmo e acabamento técnico
+        </p>
+
+        <div class="grid" role="list">
+          <div class="card" role="listitem">
+            <h3>VSL</h3>
+            <ul>
+              <li>Estrutura narrativa <span>ganchos, prova e CTA</span></li>
+              <li>Ritmo de edição <span>retenção e clareza</span></li>
+              <li>Acabamento <span>cor e áudio consistentes</span></li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Criativos</h3>
+            <ul>
+              <li>Variações <span>hooks e versões</span></li>
+              <li>Formato por plataforma <span>9:16, 1:1, 16:9</span></li>
+              <li>Reforço visual <span>texto e elementos estratégicos</span></li>
+            </ul>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>IA aplicada</h3>
+            <ul>
+              <li>Áudio gerado por IA <span>agilidade em testes</span></li>
+              <li>Lipsync <span>quando necessário</span></li>
+              <li>Iteração rápida <span>otimização de mensagem</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer aria-label="Rodapé">
+      <div>© Haroldo Abreu Souza Santana</div>
+      
+    </footer>
+  </div>
+</body>
+</html>
